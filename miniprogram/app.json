@@ -1,0 +1,13 @@
+{
+  "pages": ["pages/home/index", "pages/edit/index", "pages/detail/index", "pages/settings/index"],
+  "window": {
+    "navigationBarTitleText": "购物审批",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f4f6f5",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

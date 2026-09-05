@@ -1,0 +1,2 @@
+.invite { font-family: monospace; padding: 28rpx; border: 1rpx dashed #8aa697; background: #eef5f0; border-radius: 10rpx; font-size: 30rpx; }
+.row button { flex: 1; min-width: 0; }

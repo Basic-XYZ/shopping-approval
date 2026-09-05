@@ -1,0 +1,7 @@
+.tabs { display: flex; margin-top: 32rpx; border-bottom: 1rpx solid #d9e2dd; }
+.tab { flex: 1; text-align: center; padding: 24rpx 4rpx; color: #6b7973; border-bottom: 4rpx solid transparent; }
+.tab.selected { color: #17745a; border-color: #17745a; font-weight: 600; }
+.request { background: #fff; padding: 28rpx; border: 1rpx solid #dfe6e2; border-radius: 12rpx; margin-top: 24rpx; }
+.category { color: #6b7973; font-size: 24rpx; }
+.request-title { font-size: 34rpx; font-weight: 600; margin: 24rpx 0; word-break: break-all; }
+.amount { font-size: 38rpx; font-weight: 600; }

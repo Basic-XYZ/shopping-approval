@@ -1,0 +1,11 @@
+node_modules/
+miniprogram/miniprogram_npm/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+project.private.config.json
+.DS_Store
+.baku-coding-discipline/
+artifacts/

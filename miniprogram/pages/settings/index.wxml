@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="heading">我的搭档</view>
+  <view class="error" wx:if="{{error}}">{{error}}<button class="text-button" bindtap="load">重新加载</button></view>
+  <view class="muted spaced" wx:if="{{loading}}">加载中…</view>
+  <block wx:if="{{session}}">
+    <view class="field"><text class="label">我的昵称</text><input value="{{name}}" bindinput="name" maxlength="20" placeholder="输入昵称" /><button class="secondary spaced" bindtap="save" disabled="{{busy || loading}}">保存昵称</button></view>
+    <view class="section" wx:if="{{session.partner}}"><view class="muted">当前搭档</view><view class="subheading spaced break">{{session.partner.name}}</view><button class="danger spaced" bindtap="unbind" disabled="{{busy || loading}}">解除绑定</button></view>
+    <block wx:else>
+      <view class="section"><view class="subheading">邀请搭档</view><button class="primary spaced" bindtap="invite" disabled="{{busy || loading}}">生成邀请码</button>
+        <view class="spaced" wx:if="{{invite}}"><view class="invite break" selectable="true">{{invite.code}}</view><view class="muted spaced">有效期至 {{invite.expires}}</view><view class="row spaced"><button class="secondary" bindtap="copy">复制邀请码</button><button class="primary" open-type="share">发送给搭档</button></view></view>
+      </view>
+      <view class="section"><view class="subheading">接受邀请</view><input class="spaced" value="{{inputCode}}" bindinput="code" maxlength="32" placeholder="粘贴搭档的邀请码" /><button class="secondary spaced" bindtap="bind" disabled="{{busy || loading || !inputCode}}">绑定搭档</button></view>
+    </block>
+  </block>
+</view>

@@ -1,0 +1,25 @@
+<view class="page">
+  <view class="row"><view class="heading">购物审批</view><button class="text-button" bindtap="settings">搭档设置</button></view>
+  <view class="muted spaced" wx:if="{{session.partner}}">{{session.me.name}} 与 {{session.partner.name}}</view>
+  <view class="tabs"><view wx:for="{{tabs}}" wx:key="value" class="tab {{tab === item.value ? 'selected' : ''}}" data-tab="{{item.value}}" bindtap="selectTab">{{item.label}}</view></view>
+  <view class="error" wx:if="{{error}}">{{error}}<button class="text-button" bindtap="refresh">重新加载</button></view>
+  <view class="empty" wx:if="{{!loading && !error && !session.partner}}">
+    <icon type="waiting" size="42" color="#17745a" />
+    <view class="empty-title">还没有绑定搭档</view><view class="muted">你的搭档可以是朋友，也可以是伴侣。</view>
+    <button class="primary" bindtap="settings">绑定搭档</button>
+  </view>
+  <view class="empty" wx:elif="{{!loading && !error && items.length === 0}}">
+    <icon type="success_no_circle" size="42" color="#17745a" />
+    <view class="empty-title">{{tab === 'pending' ? '没有待审批的申请' : '这里还没有申请'}}</view>
+    <view class="muted">{{tab === 'pending' ? '收到新申请后，会显示在这里。' : '想买的东西，从一份申请开始。'}}</view>
+  </view>
+  <view class="request" wx:for="{{items}}" wx:key="_id" data-id="{{item._id}}" bindtap="detail">
+    <view class="row"><text class="category">{{item.categoryLabel}}</text><text class="status {{item.status}}">{{item.statusLabel}}</text></view>
+    <view class="request-title">{{item.title}}</view>
+    <view class="row"><text class="amount">¥ {{item.amount}}</text><text class="muted">{{item.creatorName}}</text></view>
+    <view class="muted spaced">{{item.time}}</view>
+  </view>
+  <view class="muted empty" wx:if="{{loading}}">加载中…</view>
+  <view class="muted empty" wx:elif="{{items.length && !hasMore}}">已经到底了</view>
+</view>
+<view class="bottom"><button class="primary" bindtap="create" disabled="{{!session.partner}}">新建购物申请</button></view>

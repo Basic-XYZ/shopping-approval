@@ -1,0 +1,10 @@
+{
+  "collections": ["sa_users", "sa_invites", "sa_groups", "sa_requests"],
+  "rules": { "read": false, "write": false },
+  "indexes": [
+    { "collection": "sa_requests", "name": "group_time", "keys": { "groupId": 1, "createdAt": -1, "_id": -1 } },
+    { "collection": "sa_requests", "name": "group_creator_time", "keys": { "groupId": 1, "creatorId": 1, "createdAt": -1, "_id": -1 } },
+    { "collection": "sa_requests", "name": "group_status_time", "keys": { "groupId": 1, "status": 1, "createdAt": -1, "_id": -1 } },
+    { "collection": "sa_requests", "name": "group_approver_status_time", "keys": { "groupId": 1, "approverId": 1, "status": 1, "createdAt": -1, "_id": -1 } }
+  ]
+}

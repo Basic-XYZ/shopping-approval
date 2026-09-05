@@ -1,0 +1,14 @@
+{
+  "name": "shopping-approval",
+  "version": "0.1.0",
+  "private": true,
+  "description": "原生微信小程序：双人购物申请与审批",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node scripts/check-project.js",
+    "verify": "npm run check && npm test",
+    "check:native": "node scripts/check-native.js",
+    "check:deployment": "node scripts/check-project.js --deployment"
+  },
+  "engines": { "node": ">=18" }
+}

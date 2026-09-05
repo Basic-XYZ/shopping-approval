@@ -1,0 +1,22 @@
+<view class="page">
+  <view class="error" wx:if="{{error}}">{{error}}<button class="text-button" bindtap="load">刷新详情</button></view>
+  <view class="muted empty" wx:if="{{loading}}">加载中…</view>
+  <block wx:if="{{item}}">
+    <view class="row"><text class="muted">{{item.categoryLabel}}</text><text class="status {{item.status}}">{{item.statusLabel}}</text></view>
+    <view class="heading spaced break">{{item.title}}</view><view class="price">¥ {{item.amount}}</view>
+    <view class="muted break">{{item.creatorName}} 申请 · {{item.approverName}} 审批</view>
+    <view class="section"><view class="label">购买理由</view><view class="break">{{item.reason}}</view></view>
+    <view class="section" wx:if="{{item.link}}"><view class="row"><text class="label">商品链接</text><button class="text-button" bindtap="copy">复制链接</button></view><view class="muted break">{{item.link}}</view></view>
+    <view class="section"><view class="label">操作记录</view><view class="event" wx:for="{{item.history}}" wx:key="index"><view>{{item.name}} · {{item.label}}</view><view class="muted">{{item.time}}</view><view class="break spaced" wx:if="{{item.comment}}">{{item.comment}}</view></view></view>
+    <view class="section" wx:if="{{!item.isMine && item.status === 'pending'}}"><view class="label">审批备注</view><textarea value="{{comment}}" bindinput="comment" maxlength="200" placeholder="驳回时请填写理由" /></view>
+  </block>
+</view>
+<view class="bottom">
+  <block wx:if="{{item && !item.isMine && item.status === 'pending'}}">
+    <button class="danger" data-action="reject" bindtap="act" disabled="{{busy}}">驳回</button><button class="primary" data-action="approve" bindtap="act" disabled="{{busy}}">同意申请</button>
+  </block>
+  <button wx:elif="{{item.isMine && item.status === 'approved'}}" class="primary" data-action="purchase" bindtap="act" disabled="{{busy}}">标记已购买</button>
+  <button wx:elif="{{item.isMine && item.status === 'rejected'}}" class="primary" bindtap="edit">修改并重新提交</button>
+  <button wx:elif="{{item.isMine && item.status === 'pending'}}" class="secondary" data-action="cancel" bindtap="act" disabled="{{busy}}">撤回申请</button>
+  <button wx:else class="secondary" bindtap="home">返回申请列表</button>
+</view>

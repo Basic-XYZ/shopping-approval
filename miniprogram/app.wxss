@@ -1,0 +1,33 @@
+page { background: #f4f6f5; color: #202b28; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 28rpx; letter-spacing: 0; }
+view, button, input, textarea { box-sizing: border-box; }
+button { margin: 0; padding: 0 28rpx; min-height: 88rpx; display: flex; align-items: center; justify-content: center; font-size: 28rpx; font-weight: 600; border-radius: 12rpx; line-height: 1.4; }
+button::after { border: 0; }
+button[disabled] { opacity: .5; }
+.page { padding: 32rpx 32rpx 200rpx; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 20rpx; }
+.heading { font-size: 44rpx; font-weight: 700; line-height: 1.35; }
+.subheading { font-size: 32rpx; font-weight: 600; }
+.muted { color: #6b7973; font-size: 25rpx; line-height: 1.6; }
+.primary { color: #fff; background: #17745a; }
+.secondary { color: #244b40; background: #e7efeb; }
+.danger { color: #aa343f; background: #fae9eb; }
+.text-button { color: #17745a; background: transparent; min-height: 72rpx; padding: 0 16rpx; flex-shrink: 0; }
+.error { color: #9e303c; background: #fae9eb; padding: 24rpx; margin: 24rpx 0; border-radius: 12rpx; line-height: 1.6; word-break: break-all; }
+.empty { padding: 88rpx 24rpx; text-align: center; }
+.empty-title { font-size: 32rpx; font-weight: 600; margin: 24rpx 0 12rpx; }
+.empty button { margin: 32rpx auto 0; max-width: 360rpx; }
+.empty-icon { width: 88rpx; height: 88rpx; }
+.bottom { position: fixed; bottom: 0; left: 0; right: 0; padding: 24rpx 32rpx; padding-bottom: calc(24rpx + env(safe-area-inset-bottom)); background: #fff; border-top: 1rpx solid #dfe6e2; display: flex; gap: 20rpx; z-index: 2; }
+.bottom button { flex: 1; min-width: 0; }
+.section { margin-top: 36rpx; padding-top: 28rpx; border-top: 1rpx solid #dde5e0; }
+.field { margin-top: 28rpx; }
+.label { display: block; margin-bottom: 16rpx; font-weight: 600; }
+input, textarea, .picker { width: 100%; background: #fff; border: 1rpx solid #d9e2dd; border-radius: 10rpx; padding: 22rpx; font-size: 28rpx; line-height: 1.5; }
+input { height: 92rpx; }
+textarea { height: 210rpx; }
+.status { font-size: 23rpx; padding: 8rpx 14rpx; border-radius: 6rpx; white-space: nowrap; color: #6b7973; background: #edf0ee; }
+.status.pending { color: #86620e; background: #fff3cc; }
+.status.approved, .status.purchased { color: #176849; background: #e2f3e8; }
+.status.rejected { color: #aa343f; background: #fae9eb; }
+.break { word-break: break-all; white-space: pre-wrap; }
+.spaced { margin-top: 20rpx; }

@@ -1,0 +1,2 @@
+.price { font-size: 60rpx; font-weight: 700; margin: 24rpx 0; color: #17745a; word-break: break-all; }
+.event { padding: 20rpx 0 20rpx 24rpx; border-left: 4rpx solid #d4e5db; }

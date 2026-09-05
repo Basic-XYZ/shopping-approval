@@ -1,0 +1,11 @@
+<view class="page">
+  <view class="heading">{{id ? '修改申请' : '想买什么？'}}</view>
+  <view class="error" wx:if="{{error}}">{{error}}</view>
+  <view class="muted spaced" wx:if="{{loading}}">加载申请中…</view>
+  <view class="field"><text class="label">商品名称</text><input value="{{form.title}}" data-field="title" bindinput="input" maxlength="60" placeholder="例如：一副降噪耳机" /></view>
+  <view class="field"><text class="label">预计金额（元）</text><input type="digit" value="{{form.amount}}" data-field="amount" bindinput="input" maxlength="10" placeholder="0.00" /></view>
+  <view class="field"><text class="label">分类</text><picker range="{{categories}}" range-key="label" value="{{categoryIndex}}" bindchange="category"><view class="picker">{{categories[categoryIndex].label}}</view></picker></view>
+  <view class="field"><text class="label">购买理由</text><textarea value="{{form.reason}}" data-field="reason" bindinput="input" maxlength="500" placeholder="说说为什么想买它" /></view>
+  <view class="field"><text class="label">商品链接（选填）</text><input value="{{form.link}}" data-field="link" bindinput="input" maxlength="1000" placeholder="https://" /></view>
+</view>
+<view class="bottom"><button class="primary" bindtap="submit" loading="{{busy}}" disabled="{{busy || loading || (id && !revision)}}">{{id ? '重新提交' : '提交申请'}}</button></view>

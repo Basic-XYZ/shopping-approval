@@ -1,0 +1,15 @@
+{
+  "description": "购物审批微信小程序",
+  "projectname": "shopping-approval",
+  "appid": "",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "urlCheck": true,
+    "enhance": true
+  }
+}
